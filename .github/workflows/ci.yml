@@ -18,7 +18,7 @@ jobs:
         node: [22, 24, 26]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node }}
@@ -31,7 +31,7 @@ jobs:
     name: Generated dist / source parity
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -47,7 +47,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v7
@@ -70,7 +70,7 @@ jobs:
     name: Action smoke / source tree
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -83,7 +83,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - name: Create a deterministic working-tree change
         shell: bash
         run: node -e "require('node:fs').appendFileSync('fixtures/demo/base/src/discount.js', '\n// published Action smoke\n')"
